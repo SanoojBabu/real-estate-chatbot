@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Confident Group — AI Property Assistant</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold:        #C9A84C;
+      --gold-light:  #E8D5A3;
+      --gold-dim:    #8B6F35;
+      --navy:        #0D1B2A;
+      --navy-mid:    #162336;
+      --navy-soft:   #1E3048;
+      --navy-card:   #243347;
+      --white:       #FFFFFF;
+      --text-muted:  #6B7280;
+      --shadow-chat: 0 32px 80px rgba(0,0,0,0.22), 0 8px 24px rgba(0,0,0,0.12);
+    }
+
+    html, body {
+      height: 100%;
+      font-family: 'Inter', sans-serif;
+      background: var(--navy);
+      overflow: hidden;
+    }
+
+    body {
+      background-image:
+        radial-gradient(ellipse 70% 60% at 15% 50%, rgba(201,168,76,0.07) 0%, transparent 100%),
+        radial-gradient(ellipse 50% 40% at 85% 15%, rgba(201,168,76,0.04) 0%, transparent 100%);
+    }
+
+    .layout { display: flex; height: 100vh; width: 100vw; }
+
+    /* ── SIDEBAR ── */
+    .sidebar {
+      width: 300px; flex-shrink: 0;
+      display: flex; flex-direction: column;
+      padding: 36px 28px;
+      position: relative; overflow: hidden;
+    }
+
+    .sidebar::after {
+      content: ''; position: absolute;
+      right: 0; top: 20%; bottom: 20%; width: 1px;
+      background: linear-gradient(to bottom, transparent, rgba(201,168,76,0.2), transparent);
+    }
+
+    .logo-block { display: flex; align-items: center; gap: 13px; margin-bottom: 44px; }
+
+    .logo-mark {
+      width: 46px; height: 46px;
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dim) 100%);
+      border-radius: 11px; display: flex; align-items: center; justify-content: center;
+      font-size: 22px; flex-shrink: 0;
+      box-shadow: 0 4px 16px rgba(201,168,76,0.3);
+    }
+
+    .logo-text { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 600; color: var(--white); line-height: 1.2; }
+    .logo-text span { display: block; font-family: 'Inter', sans-serif; font-size: 10px; font-weight: 400; letter-spacing: 2.8px; text-transform: uppercase; color: var(--gold-light); margin-top: 3px; opacity: 0.85; }
+
+    .sidebar-headline { font-family: 'Cormorant Garamond', serif; font-size: 30px; font-weight: 500; color: var(--white); line-height: 1.3; margin-bottom: 14px; }
+    .sidebar-headline em { font-style: italic; color: var(--gold-light); }
+
+    .sidebar-desc { font-size: 12.5px; color: rgba(255,255,255,0.48); line-height: 1.75; margin-bottom: 36px; }
+
+    .chips-label { font-size: 9.5px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 10px; }
+
+    .chips { display: flex; flex-direction: column; gap: 7px; }
+
+    .chip {
+      display: flex; align-items: center; gap: 10px;
+      padding: 10px 14px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(201,168,76,0.15);
+      border-radius: 8px; cursor: pointer;
+      transition: background 0.18s, border-color 0.18s, transform 0.12s;
+      text-align: left;
+    }
+    .chip:hover { background: rgba(201,168,76,0.1); border-color: rgba(201,168,76,0.45); transform: translateX(3px); }
+    .chip-icon { font-size: 15px; flex-shrink: 0; opacity: 0.85; }
+    .chip-text { font-size: 12px; color: rgba(255,255,255,0.72); line-height: 1.3; }
+
+    .stats { margin-top: auto; display: flex; border-top: 1px solid rgba(255,255,255,0.07); padding-top: 22px; }
+    .stat { flex: 1; text-align: center; }
+    .stat-value { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; color: var(--gold-light); }
+    .stat-label { font-size: 9.5px; color: rgba(255,255,255,0.35); letter-spacing: 1px; text-transform: uppercase; margin-top: 2px; }
+    .stat + .stat { border-left: 1px solid rgba(255,255,255,0.07); }
+
+    /* ── CHAT MAIN ── */
+    .chat-main { flex: 1; display: flex; flex-direction: column; padding: 24px 28px 24px 32px; min-width: 0; }
+
+    .chat-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px; flex-shrink: 0; }
+    .chat-header-left { display: flex; align-items: center; gap: 12px; }
+
+    .header-avatar {
+      width: 42px; height: 42px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--navy-soft), var(--navy-card));
+      border: 2px solid rgba(201,168,76,0.35);
+      display: flex; align-items: center; justify-content: center; font-size: 19px; flex-shrink: 0;
+    }
+
+    .header-info h2 { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 600; color: var(--white); line-height: 1; }
+    .header-info p { font-size: 11px; color: rgba(255,255,255,0.5); margin-top: 3px; display: flex; align-items: center; gap: 5px; }
+
+    .online-dot { width: 7px; height: 7px; border-radius: 50%; background: #4ADE80; flex-shrink: 0; animation: breathe 2.5s ease-in-out infinite; }
+    @keyframes breathe {
+      0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(74,222,128,0.4); }
+      50%       { opacity: 0.6; box-shadow: 0 0 0 4px rgba(74,222,128,0); }
+    }
+
+    .btn-clear { font-size: 11px; color: rgba(255,255,255,0.35); background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 6px; padding: 6px 12px; cursor: pointer; transition: all 0.18s; font-family: 'Inter', sans-serif; }
+    .btn-clear:hover { color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.1); }
+
+    /* API Setup */
+    .api-setup {
+      display: flex; align-items: center; gap: 10px;
+      background: rgba(201,168,76,0.08);
+      border: 1px solid rgba(201,168,76,0.25);
+      border-radius: 12px; padding: 10px 14px;
+      margin-bottom: 16px; flex-shrink: 0;
+    }
+    .api-setup-label { font-size: 11px; color: var(--gold-light); font-weight: 500; white-space: nowrap; }
+    .api-setup input { flex: 1; background: rgba(0,0,0,0.25); border: 1px solid rgba(201,168,76,0.2); border-radius: 7px; padding: 7px 12px; font-size: 12px; font-family: 'Inter', sans-serif; color: var(--white); outline: none; transition: border-color 0.18s; }
+    .api-setup input::placeholder { color: rgba(255,255,255,0.3); }
+    .api-setup input:focus { border-color: var(--gold); }
+    .api-setup button { background: linear-gradient(135deg, var(--gold), var(--gold-dim)); color: var(--navy); border: none; border-radius: 7px; padding: 7px 16px; font-size: 12px; font-weight: 600; cursor: pointer; font-family: 'Inter', sans-serif; transition: opacity 0.18s; white-space: nowrap; }
+    .api-setup button:hover { opacity: 0.85; }
+    .api-setup-link { font-size: 11px; color: var(--gold); text-decoration: underline; white-space: nowrap; cursor: pointer; }
+
+    /* Chat window */
+    .chat-window { flex: 1; background: rgba(255,255,255,0.035); border: 1px solid rgba(255,255,255,0.07); border-radius: 18px; display: flex; flex-direction: column; overflow: hidden; box-shadow: var(--shadow-chat); min-height: 0; }
+
+    .messages { flex: 1; overflow-y: auto; padding: 24px 22px; display: flex; flex-direction: column; gap: 18px; scroll-behavior: smooth; }
+    .messages::-webkit-scrollbar { width: 4px; }
+    .messages::-webkit-scrollbar-track { background: transparent; }
+    .messages::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 4px; }
+
+    .msg-row { display: flex; gap: 10px; align-items: flex-end; animation: slideUp 0.22s ease; }
+    @keyframes slideUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    .msg-row.user { flex-direction: row-reverse; }
+
+    .msg-av { width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; margin-bottom: 2px; }
+    .msg-row.bot  .msg-av { background: linear-gradient(135deg, var(--navy-soft), var(--navy-card)); border: 1px solid rgba(201,168,76,0.25); }
+    .msg-row.user .msg-av { background: linear-gradient(135deg, var(--gold), var(--gold-dim)); }
+
+    .msg-content { max-width: 72%; display: flex; flex-direction: column; gap: 4px; }
+    .msg-row.user .msg-content { align-items: flex-end; }
+
+    .msg-bubble { padding: 12px 16px; border-radius: 18px; font-size: 13.5px; line-height: 1.65; }
+    .msg-row.bot  .msg-bubble { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.09); color: rgba(255,255,255,0.9); border-bottom-left-radius: 4px; }
+    .msg-row.user .msg-bubble { background: linear-gradient(135deg, var(--gold), var(--gold-dim)); color: var(--navy); font-weight: 500; border-bottom-right-radius: 4px; }
+    .msg-bubble a { color: var(--gold-light); text-decoration: underline; text-underline-offset: 2px; }
+    .msg-row.user .msg-bubble a { color: var(--navy-mid); }
+
+    .msg-time { font-size: 10px; color: rgba(255,255,255,0.25); padding: 0 4px; }
+
+    /* Typing */
+    .typing-row { display: flex; gap: 10px; align-items: flex-end; }
+    .typing-bubble { padding: 14px 18px; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.09); border-radius: 18px; border-bottom-left-radius: 4px; display: flex; gap: 5px; align-items: center; }
+    .t-dot { width: 7px; height: 7px; background: var(--gold); border-radius: 50%; animation: tdot 1.3s ease-in-out infinite; }
+    .t-dot:nth-child(2) { animation-delay: 0.18s; }
+    .t-dot:nth-child(3) { animation-delay: 0.36s; }
+    @keyframes tdot { 0%, 60%, 100% { transform: translateY(0); opacity: 0.4; } 30% { transform: translateY(-6px); opacity: 1; } }
+
+    /* Input */
+    .input-bar { padding: 14px 18px; border-top: 1px solid rgba(255,255,255,0.07); display: flex; gap: 10px; align-items: flex-end; background: rgba(0,0,0,0.15); }
+    .input-bar textarea { flex: 1; background: rgba(255,255,255,0.07); border: 1.5px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 11px 15px; font-size: 13.5px; font-family: 'Inter', sans-serif; color: var(--white); resize: none; outline: none; max-height: 110px; line-height: 1.5; transition: border-color 0.18s; }
+    .input-bar textarea::placeholder { color: rgba(255,255,255,0.3); }
+    .input-bar textarea:focus { border-color: rgba(201,168,76,0.5); }
+
+    .send-btn { width: 44px; height: 44px; background: linear-gradient(135deg, var(--gold), var(--gold-dim)); border: none; border-radius: 12px; cursor: pointer; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: opacity 0.18s, transform 0.1s; box-shadow: 0 4px 14px rgba(201,168,76,0.3); }
+    .send-btn:hover { opacity: 0.88; }
+    .send-btn:active { transform: scale(0.93); }
+    .send-btn:disabled { opacity: 0.35; cursor: not-allowed; box-shadow: none; }
+    .send-btn svg { width: 19px; height: 19px; fill: var(--navy); }
+
+    .input-hint { padding: 7px 18px 10px; font-size: 10.5px; color: rgba(255,255,255,0.2); text-align: center; background: rgba(0,0,0,0.15); }
+
+    /* Toast */
+    .toast { position: fixed; bottom: 28px; left: 50%; transform: translateX(-50%) translateY(20px); background: rgba(30,48,72,0.95); border: 1px solid rgba(201,168,76,0.3); color: var(--gold-light); font-size: 12px; padding: 10px 20px; border-radius: 30px; opacity: 0; transition: all 0.3s; pointer-events: none; z-index: 999; backdrop-filter: blur(12px); }
+    .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+    @media (max-width: 760px) { .sidebar { display: none; } .chat-main { padding: 16px; } }
+  </style>
+</head>
+<body>
+
+<div class="layout">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="logo-block">
+      <div class="logo-mark">🏛️</div>
+      <div class="logo-text">Confident Group<span>Premium Properties</span></div>
+    </div>
+    <h1 class="sidebar-headline">Find your <em>ideal</em> property with AI</h1>
+    <p class="sidebar-desc">Ask Priya anything about our projects — pricing, locations, floor plans, site visits, and more. Available 24/7.</p>
+
+    <p class="chips-label">Quick topics</p>
+    <div class="chips">
+      <button class="chip" onclick="quickSend('Tell me about your apartment projects in Kochi')"><span class="chip-icon">🏙️</span><span class="chip-text">Apartment Projects</span></button>
+      <button class="chip" onclick="quickSend('Tell me about your luxury villa projects')"><span class="chip-icon">🌿</span><span class="chip-text">Villa Projects</span></button>
+      <button class="chip" onclick="quickSend('What locations do you have properties in?')"><span class="chip-icon">📍</span><span class="chip-text">Locations</span></button>
+      <button class="chip" onclick="quickSend('What is the price range for your properties?')"><span class="chip-icon">💰</span><span class="chip-text">Pricing & Budget</span></button>
+      <button class="chip" onclick="quickSend('Can I get a brochure for your projects?')"><span class="chip-icon">📄</span><span class="chip-text">Project Brochures</span></button>
+      <button class="chip" onclick="quickSend('I am an NRI investor. What options do you have for me?')"><span class="chip-icon">✈️</span><span class="chip-text">NRI Investment</span></button>
+      <button class="chip" onclick="quickSend('How do I book a site visit?')"><span class="chip-icon">🗓️</span><span class="chip-text">Book a Site Visit</span></button>
+      <button class="chip" onclick="quickSend('Tell me about home loan options available')"><span class="chip-icon">🏦</span><span class="chip-text">Home Loan Support</span></button>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><div class="stat-value">25+</div><div class="stat-label">Years</div></div>
+      <div class="stat"><div class="stat-value">50+</div><div class="stat-label">Projects</div></div>
+      <div class="stat"><div class="stat-value">4</div><div class="stat-label">Cities</div></div>
+    </div>
+  </aside>
+
+  <!-- CHAT MAIN -->
+  <main class="chat-main">
+
+    <div class="chat-header">
+      <div class="chat-header-left">
+        <div class="header-avatar">🏛️</div>
+        <div class="header-info">
+          <h2>Priya — Property Assistant</h2>
+          <p><span class="online-dot"></span> Online · Powered by Google Gemini AI</p>
+        </div>
+      </div>
+      <button class="btn-clear" onclick="clearChat()">Clear chat</button>
+    </div>
+
+    <!-- API Setup Bar -->
+    <div class="api-setup" id="apiSetup">
+      <span class="api-setup-label">🔑 Gemini API Key</span>
+      <input type="password" id="apiKeyInput" placeholder="Paste your Google Gemini API key here…"/>
+      <a class="api-setup-link" href="https://aistudio.google.com/app/apikey" target="_blank">Get free key ↗</a>
+      <button onclick="connectApi()">Connect</button>
+    </div>
+
+    <div class="chat-window">
+      <div class="messages" id="messages">
+        <div class="msg-row bot">
+          <div class="msg-av">🏛️</div>
+          <div class="msg-content">
+            <div class="msg-bubble">
+              Welcome to <strong>Confident Group</strong>! I'm Priya, your AI property assistant. 👋<br><br>
+              I can help you with:<br>
+              • Our residential &amp; commercial projects<br>
+              • Pricing, locations &amp; floor plans<br>
+              • Project brochures<br>
+              • NRI investment guidance<br>
+              • Booking a site visit<br><br>
+              What kind of property are you looking for today?
+            </div>
+            <div class="msg-time" id="welcomeTime"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="input-bar">
+        <textarea id="userInput" rows="1" placeholder="Ask about projects, pricing, locations, brochures…" onkeydown="handleKey(event)" oninput="autoGrow(this)"></textarea>
+        <button class="send-btn" id="sendBtn" onclick="sendMessage()">
+          <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+        </button>
+      </div>
+      <div class="input-hint">Enter to send · Shift+Enter for new line · Confident Group © 2026</div>
+    </div>
+
+  </main>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ── STATE ── */
+let apiKey = '';
+let history = [];
+let isThinking = false;
+
+/* ── KNOWLEDGE BASE (system instruction for Gemini) ── */
+const SYSTEM_INSTRUCTION = `You are Priya, a warm, knowledgeable, and professional AI property consultant for Confident Group — a premium real estate developer headquartered in Kochi, Kerala, India.
+
+YOUR PERSONALITY:
+- Warm, confident, and genuinely helpful — like a trusted friend who knows real estate well
+- Use the customer's name warmly if they share it
+- Keep replies focused and scannable — use line breaks and bullet points for clarity
+- Always end with one natural follow-up question to keep the conversation going
+- Never be pushy; let the properties speak for themselves
+
+ABOUT CONFIDENT GROUP:
+- Premium real estate developer with 25+ years of excellence
+- 50+ completed projects across Kerala
+- Specialises in luxury villas, premium apartments, plotted developments, and commercial spaces
+- Projects across: Kochi, Thrissur, Kozhikode, Trivandrum
+- Strong NRI focus with dedicated NRI desk
+- RERA registered | ISO certified construction quality | Known for on-time delivery
+
+CURRENT PROJECTS:
+
+1. CONFIDENT TRANQUIL VILLAS — Kakkanad, Kochi
+   Type: 3BHK & 4BHK Luxury Villas
+   Price: ₹1.8 Cr – ₹3.2 Cr | Size: 2,200 – 3,800 sq ft
+   Features: Private pool (optional), landscaped gardens, gated community, clubhouse, EV charging, 24/7 security
+   Status: Under construction | Possession: December 2026
+   USP: Kakkanad's most premium villa community, close to Infopark
+   Brochure: https://confidentgroup.com/tranquil-villas-brochure
+
+2. CONFIDENT SKYLINE RESIDENCES — Edapally, Kochi
+   Type: 2BHK & 3BHK Premium Apartments
+   Price: ₹75 L – ₹1.4 Cr | Size: 1,050 – 1,850 sq ft
+   Features: Rooftop infinity pool, fully equipped gym, EV charging, smart home automation, modular kitchen
+   Status: Ready to occupy
+   USP: Best connectivity — Metro, NH Bypass, airport within 15 min
+   Brochure: https://confidentgroup.com/skyline-brochure
+
+3. CONFIDENT HERITAGE HOMES — Thrissur
+   Type: 3BHK & 4BHK Traditional Kerala-style Villas
+   Price: ₹1.2 Cr – ₹2.1 Cr | Size: 1,900 – 3,200 sq ft
+   Features: Traditional Nalukettu-inspired architecture, teak wood interiors, Vastu compliant, large courtyard
+   Status: Ready to occupy
+   USP: Kerala cultural living — ideal for NRI families relocating from abroad
+   Brochure: https://confidentgroup.com/heritage-homes-brochure
+
+4. CONFIDENT GREENFIELDS — Kozhikode
+   Type: Plotted development + 2BHK compact villas
+   Price: Plots from ₹45 L | Villas from ₹90 L | Size: Plots 4–8 cents | Villas 950–1,400 sq ft
+   Features: Gated community, children's park, jogging track, organic farming plots
+   Status: New launch — pre-booking open now
+   USP: Kozhikode's most affordable premium community — best ROI for investors
+   Brochure: https://confidentgroup.com/greenfields-brochure
+
+5. CONFIDENT CORPORATE PARK — Marine Drive, Kochi
+   Type: Commercial office spaces
+   Price: ₹95 L – ₹3.5 Cr | Size: 600 – 4,500 sq ft
+   Features: Sea-facing offices, premium lobbies, high-speed fiber, ample parking
+   Status: Possession Q1 2027
+   USP: Kochi's most prestigious business address — Marine Drive frontage
+
+CONTACT & BOOKING:
+- Site visits: Free, 7 days a week, 9 AM – 6 PM
+- Sales: +91-484-123-4567 | WhatsApp: +91-98765-43210
+- Sales office: 4th Floor, Confident Tower, MG Road, Kochi
+- Email: sales@confidentgroup.com
+- NRI desk: nri@confidentgroup.com | +91-484-123-4568
+
+HOME LOAN SUPPORT:
+- Bank tie-ups: SBI, HDFC, ICICI, Axis Bank, Federal Bank
+- Up to 80% loan on ready properties
+- Special NRI mortgage and FCNR loan assistance available
+
+RESPONSE RULES:
+- Always share the brochure URL when a specific project is discussed
+- For pricing negotiation: "Our sales team can work out the best deal for you"
+- For unknown projects: "Let me connect you with our team for the latest project list"
+- If customer mentions budget/timeline match: proactively offer to help book a site visit
+- NRI customers: highlight Heritage Homes and Greenfields; mention NRI desk
+- NEVER fabricate project details not listed above`;
+
+/* ── INIT ── */
+window.onload = () => {
+  document.getElementById('welcomeTime').textContent = now();
+  const saved = localStorage.getItem('cg_gemini_key');
+  if (saved) { apiKey = saved; hideSetup(); }
+  document.getElementById('userInput').focus();
+};
+
+function now() {
+  return new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+}
+
+/* ── API KEY ── */
+function connectApi() {
+  const val = document.getElementById('apiKeyInput').value.trim();
+  if (!val || val.length < 10) {
+    showToast('⚠️ Please enter a valid Gemini API key');
+    return;
+  }
+  apiKey = val;
+  localStorage.setItem('cg_gemini_key', val);
+  hideSetup();
+  showToast('✅ Connected! You can now chat with Priya.');
+}
+
+function hideSetup() {
+  const el = document.getElementById('apiSetup');
+  if (el) el.style.display = 'none';
+}
+
+/* ── SEND MESSAGE ── */
+async function sendMessage() {
+  const textarea = document.getElementById('userInput');
+  const text = textarea.value.trim();
+  if (!text || isThinking) return;
+
+  if (!apiKey) {
+    showToast('🔑 Please paste your Gemini API key above first');
+    document.getElementById('apiKeyInput').focus();
+    return;
+  }
+
+  textarea.value = '';
+  textarea.style.height = 'auto';
+  isThinking = true;
+  document.getElementById('sendBtn').disabled = true;
+
+  appendMsg('user', escHtml(text));
+  history.push({ role: 'user', parts: [{ text }] });
+
+  const typingId = showTyping();
+
+  try {
+    // Build Gemini API request
+    // Uses gemini-1.5-flash — free tier, fast, capable
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
+
+    const body = {
+      system_instruction: { parts: [{ text: SYSTEM_INSTRUCTION }] },
+      contents: history,
+      generationConfig: {
+        temperature: 0.7,
+        maxOutputTokens: 1024,
+        topP: 0.9
+      }
+    };
+
+    const res = await fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body)
+    });
+
+    removeTyping(typingId);
+
+    if (!res.ok) {
+      const err = await res.json().catch(() => ({}));
+      const msg = err?.error?.message || `HTTP ${res.status}`;
+      if (res.status === 400) throw new Error('Invalid API key. Get your free key at aistudio.google.com');
+      if (res.status === 429) throw new Error('Rate limit reached. Please wait a moment and try again.');
+      throw new Error(msg);
+    }
+
+    const data = await res.json();
+    const reply = data?.candidates?.[0]?.content?.parts?.[0]?.text
+      || 'Sorry, I could not generate a response. Please try again.';
+
+    history.push({ role: 'model', parts: [{ text: reply }] });
+    appendMsg('bot', formatText(reply));
+
+  } catch (err) {
+    removeTyping(typingId);
+    appendMsg('bot', `⚠️ <em>${escHtml(err.message)}</em><br><small style="opacity:0.6">Check your API key or try again shortly.</small>`);
+  }
+
+  isThinking = false;
+  document.getElementById('sendBtn').disabled = false;
+  document.getElementById('userInput').focus();
+}
+
+function quickSend(text) {
+  document.getElementById('userInput').value = text;
+  sendMessage();
+}
+
+/* ── DOM HELPERS ── */
+function appendMsg(role, html) {
+  const feed = document.getElementById('messages');
+  const row = document.createElement('div');
+  row.className = `msg-row ${role}`;
+  const icon = role === 'bot' ? '🏛️' : '👤';
+  row.innerHTML = `
+    <div class="msg-av">${icon}</div>
+    <div class="msg-content">
+      <div class="msg-bubble">${html}</div>
+      <div class="msg-time">${now()}</div>
+    </div>`;
+  feed.appendChild(row);
+  feed.scrollTop = feed.scrollHeight;
+}
+
+function showTyping() {
+  const feed = document.getElementById('messages');
+  const id = 'typing_' + Date.now();
+  const row = document.createElement('div');
+  row.className = 'typing-row'; row.id = id;
+  row.innerHTML = `
+    <div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#1E3048,#243347);border:1px solid rgba(201,168,76,0.25);display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0">🏛️</div>
+    <div class="typing-bubble"><div class="t-dot"></div><div class="t-dot"></div><div class="t-dot"></div></div>`;
+  feed.appendChild(row);
+  feed.scrollTop = feed.scrollHeight;
+  return id;
+}
+
+function removeTyping(id) {
+  const el = document.getElementById(id);
+  if (el) el.remove();
+}
+
+function escHtml(t) {
+  return t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+function formatText(text) {
+  return escHtml(text)
+    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+    .replace(/\*(.*?)\*/g, '<em>$1</em>')
+    .replace(/(https?:\/\/[^\s<]+)/g, '<a href="$1" target="_blank" rel="noopener">$1</a>')
+    .replace(/\n\n/g, '<br><br>')
+    .replace(/\n/g, '<br>');
+}
+
+function clearChat() {
+  history = [];
+  document.getElementById('messages').innerHTML = '';
+  appendMsg('bot', 'Chat cleared. How can I help you today? Ask me about any Confident Group project, pricing, or book a site visit! 🏛️');
+  showToast('Chat history cleared');
+}
+
+/* ── INPUT ── */
+function handleKey(e) {
+  if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(); }
+}
+
+function autoGrow(el) {
+  el.style.height = 'auto';
+  el.style.height = Math.min(el.scrollHeight, 110) + 'px';
+}
+
+/* ── TOAST ── */
+let toastTimer;
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => t.classList.remove('show'), 3200);
+}
+</script>
+</body>
+</html>
