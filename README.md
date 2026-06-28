@@ -5,25 +5,28 @@
 
 ![AI](https://img.shields.io/badge/AI-Google%20Gemini%202.5%20Flash-blue?style=flat-square)
 ![Deployed](https://img.shields.io/badge/Deployed-GitHub%20Pages-222?style=flat-square&logo=github)
-![HTML](https://img.shields.io/badge/Built%20with-HTML%20%2F%20JS-orange?style=flat-square)
+![HTML](https://img.shields.io/badge/Built%20with-HTML%20%2F%20JS-red?style=flat-square)
 ![Status](https://img.shields.io/badge/Status-Live-brightgreen?style=flat-square)
 ![Cost](https://img.shields.io/badge/API%20Cost-Free-success?style=flat-square)
+![Projects](https://img.shields.io/badge/Projects-14%20across%204%20regions-darkred?style=flat-square)
 
 ---
 
 ## 🌐 Live Demo
 
-**👉 [https://sanoojbabu.github.io/real-estate-chatbot](https://sanoojbabu.github.io/real-estate-chatbot/)**
+**👉 [https://YOUR-USERNAME.github.io/real-estate-chatbot](https://sanoojbabu.github.io/real-estate-chatbot)**
+
+> Replace `YOUR-USERNAME` with your GitHub username after deployment.
 
 ---
 
 ## 📌 Overview
 
-**Priya** is a branded AI property assistant built for Confident Group, a premium real estate developer in Kerala, India.
+**Priya** is a branded AI property assistant built for Confident Group — a premium international real estate developer with projects across **Kerala, Bangalore, Dubai (UAE), and the USA**.
 
-Deployed as a single HTML file on GitHub Pages, Priya provides **24/7 intelligent customer engagement** — answering property FAQs, sharing project brochures, guiding NRI investors, and helping customers book site visits — all without any human involvement.
+Deployed as a single HTML file on GitHub Pages, Priya provides **24/7 intelligent customer engagement** — answering property FAQs, sharing project brochures, guiding NRI investors across four countries, and helping customers book site visits or video calls — all without any human involvement.
 
-The chatbot is powered by **Google Gemini 2.5 Flash** (free API tier), trained on Confident Group's project knowledge base via a detailed system prompt, and requires **no backend server, no database, and no paid hosting**.
+The chatbot is powered by **Google Gemini 1.5 Flash** (free API tier), trained on Confident Group's full international project portfolio via a detailed system prompt, and requires **no backend server, no database, and no paid hosting**.
 
 ---
 
@@ -32,46 +35,48 @@ The chatbot is powered by **Google Gemini 2.5 Flash** (free API tier), trained o
 | Feature | Details |
 |---|---|
 | 🤖 AI-powered responses | Google Gemini 2.5 Flash — fast, accurate, context-aware |
-| 🏠 Real estate knowledge base | 5 projects, pricing, locations, amenities, brochures |
+| 🌍 International knowledge base | 14 projects across Kerala, Bangalore, Dubai & USA |
 | 💬 Conversation memory | Full chat history maintained within the session |
-| ⚡ 8 quick-topic buttons | Apartments, Villas, Locations, Pricing, Brochures, NRI, Site Visit, Home Loans |
+| ⚡ 8 region-based quick chips | Kerala, Bangalore, Dubai, USA, Pricing, Brochures, NRI, Book Visit |
 | 📄 Instant brochure links | AI shares direct PDF links when projects are discussed |
-| ✈️ NRI guidance | Dedicated responses for NRI investors across UAE, UK, US, AU |
+| ✈️ Smart NRI routing | Asks which country customer is in → recommends relevant projects |
+| 🇦🇪 UAE Golden Visa guidance | Flags eligibility for Dubai properties above AED 2 million |
+| 🇺🇸 US mortgage assistance | H1B & Green Card holder guidance for NJ & California properties |
 | 🕐 Timestamps | Every message timestamped for professionalism |
 | 🗑️ Clear chat | Reset conversation with one click |
 | 📱 Mobile responsive | Sidebar hides on mobile — full chat view |
-| 🎨 Branded UI | Confident Group navy & gold / red & white theme |
-| 🔒 API key stored locally | Key saved in browser localStorage — never sent to any server |
-| 🆓 Zero cost | Google Gemini free tier — 1,500 requests/day |
+| 🎨 Branded UI | Confident Group red, white & maroon color theme |
+| 🔒 Secure API key handling | Key saved in browser localStorage — never hardcoded in code |
+| 🆓 Zero hosting cost | Google Gemini free tier — 1,500 requests/day |
 
 ---
 
-## 🖥️ Screenshots
+## 🖥️ Interface Preview
 
-### Desktop View
 ```
-┌─────────────────────┬────────────────────────────────────────┐
-│                     │  🏛️ Priya — Property Assistant         │
-│  🏛️ Confident Group │  ● Online · Powered by Google Gemini   │
-│  Premium Properties │                                        │
-│                     │  Welcome to Confident Group! I'm       │
-│  Find your ideal    │  Priya, your AI property assistant.    │
-│  property with AI   │                                        │
-│                     │  I can help you with:                  │
-│  ── Quick topics ── │  • Residential & commercial projects   │
-│                     │  • Pricing, locations & floor plans    │
-│  🏙️ Apartments      │  • Project brochures                   │
-│  🌿 Villa Projects  │  • NRI investment guidance             │
-│  📍 Locations       │  • Booking a site visit                │
-│  💰 Pricing         │                                        │
-│  📄 Brochures       │  What kind of property are you         │
-│  ✈️ NRI Investment  │  looking for today?          14:32     │
-│  🗓️ Book Visit      │                                        │
-│  🏦 Home Loans      │  ┌─────────────────────────────┐  [▶] │
-│                     │  │ Ask about projects, pricing… │      │
-│  25+  50+  4        │  └─────────────────────────────┘      │
-│  Yrs  Proj Cities   │                                        │
-└─────────────────────┴────────────────────────────────────────┘
+┌──────────────────────┬──────────────────────────────────────────┐
+│                      │  🏛️ Priya — Property Assistant           │
+│  🏛️ Confident Group  │  ● Online · Kerala · Bangalore ·        │
+│  Premium Properties  │          Dubai · USA                     │
+│                      │                                          │
+│  Find your ideal     │  Welcome to Confident Group! I'm Priya. │
+│  property anywhere   │                                          │
+│  in the world        │  Properties across:                      │
+│                      │  🌴 Kerala — Kochi, Thrissur, Kozhikode  │
+│  ── Quick topics ──  │  🏙️ Bangalore — Whitefield, Sarjapur    │
+│                      │  🇦🇪 Dubai — Downtown, Marina, Bay       │
+│  🌴 Kerala Projects  │  🇺🇸 USA — New Jersey & California       │
+│  🏙️ Bangalore        │                                          │
+│  🇦🇪 Dubai           │  What kind of property are you looking   │
+│  🇺🇸 USA Properties  │  for today?                   12:44 PM  │
+│  💰 Pricing          │                                          │
+│  📄 Brochures        │  ┌──────────────────────────────┐  [▶]  │
+│  ✈️ NRI Investment   │  │ Ask about projects, pricing… │       │
+│  🗓️ Book a Visit     │  └──────────────────────────────┘       │
+│                      │                                          │
+│  25+  80+  4         │   Kerala · Bangalore · Dubai · USA © 2026│
+│  Yrs  Proj Countries │                                          │
+└──────────────────────┴──────────────────────────────────────────┘
 ```
 
 ---
@@ -82,45 +87,45 @@ The chatbot is powered by **Google Gemini 2.5 Flash** (free API tier), trained o
 Customer opens chatbot URL (GitHub Pages)
               │
               ▼
-    ┌─────────────────────┐
-    │  Single HTML File   │  ← No server, no framework, no build step
-    │  (index.html)       │
-    └────────┬────────────┘
-             │  User types message
+    ┌──────────────────────┐
+    │   Single HTML File   │  ← No server, no framework, no build step
+    │   (index.html)       │    Red / White / Maroon brand theme
+    └────────┬─────────────┘
+             │  User types message / clicks quick chip
              ▼
-    ┌─────────────────────┐
-    │  JavaScript fetch() │  ← Sends to Gemini API with:
-    │                     │     - System prompt (knowledge base)
-    └────────┬────────────┘     - Full conversation history
+    ┌──────────────────────┐
+    │  JavaScript fetch()  │  ← Sends to Gemini API with:
+    │                      │     · System prompt (full knowledge base)
+    └────────┬─────────────┘     · Full conversation history
              │
              ▼
-    ┌─────────────────────────────────────────┐
-    │  Google Gemini 2.5 Flash API            │
-    │  generativelanguage.googleapis.com      │
-    │                                         │
-    │  System prompt contains:                │
-    │  ✓ Confident Group company info         │
-    │  ✓ 5 current projects with full details │
-    │  ✓ Pricing, locations, amenities        │
-    │  ✓ Brochure URLs                        │
-    │  ✓ Contact & booking info               │
-    │  ✓ Home loan bank tie-ups               │
-    │  ✓ NRI desk details                     │
-    │  ✓ Response rules & persona (Priya)     │
-    └────────┬────────────────────────────────┘
+    ┌───────────────────────────────────────────────┐
+    │  Google Gemini 1.5 Flash API                  │
+    │  generativelanguage.googleapis.com            │
+    │                                               │
+    │  System prompt trains Priya with:             │
+    │  ✓ 14 projects across 4 regions               │
+    │  ✓ Full pricing, sizes, features per project  │
+    │  ✓ Brochure URLs for every project            │
+    │  ✓ Regional contact offices (India/UAE/USA)   │
+    │  ✓ Home loan & mortgage partners per country  │
+    │  ✓ UAE Golden Visa & US visa guidance         │
+    │  ✓ NRI smart routing by country               │
+    │  ✓ Response rules & Priya persona             │
+    └────────┬──────────────────────────────────────┘
              │  AI response
              ▼
-    ┌─────────────────────┐
-    │  Render in chat UI  │  ← Markdown formatted, timestamped,
-    │                     │     links clickable, animations applied
-    └─────────────────────┘
+    ┌──────────────────────┐
+    │  Render in chat UI   │  ← Markdown formatted, timestamped,
+    │                      │     links clickable, animations applied
+    └──────────────────────┘
 ```
 
 ---
 
-## 🏠 Knowledge Base — Confident Group Projects
+## 🌍 Project Portfolio — All 14 Properties
 
-Priya is trained on the following project data via the system prompt:
+### 🌴 Kerala Projects (5)
 
 | # | Project | Location | Type | Price Range | Status |
 |---|---|---|---|---|---|
@@ -130,12 +135,41 @@ Priya is trained on the following project data via the system prompt:
 | 4 | Confident Greenfields | Kozhikode | Plots + 2BHK Villas | From ₹45L | New launch |
 | 5 | Confident Corporate Park | Marine Drive, Kochi | Commercial offices | ₹95L – ₹3.5Cr | Possession Q1 2027 |
 
-**Additional knowledge included:**
-- Sales contact numbers and office address
-- Home loan tie-ups (SBI, HDFC, ICICI, Axis, Federal Bank)
-- NRI desk contact and FCNR loan guidance
-- Site visit booking process (free, 7 days/week, 9AM–6PM)
-- WhatsApp and email enquiry channels
+### 🏙️ Karnataka Projects (3)
+
+| # | Project | Location | Type | Price Range | Status |
+|---|---|---|---|---|---|
+| 6 | Confident Urban Heights | Whitefield, Bangalore | 2BHK & 3BHK Apartments | ₹85L – ₹1.8Cr | Under construction |
+| 7 | Confident Serene Valley | Sarjapur Road, Bangalore | Villas + Row Houses | ₹1.6Cr – ₹3.8Cr | Ready to occupy |
+| 8 | Confident Tech Square | Electronic City, Bangalore | Commercial IT offices | ₹70L – ₹2.8Cr | New launch |
+
+### 🇦🇪 Dubai (UAE) Projects (3)
+
+| # | Project | Location | Type | Price Range | Status |
+|---|---|---|---|---|---|
+| 9 | Confident Pearl Residences | Downtown Dubai | 1–3BHK Luxury Apartments | AED 950K – 4.2M | Under construction |
+| 10 | Confident Marina Cove | Dubai Marina | Studio, 1BHK & 2BHK | AED 650K – 2.8M | Ready to move |
+| 11 | Confident Business Bay Tower | Business Bay | Commercial offices | AED 1.2M – 8.5M | Ready to occupy |
+
+### 🇺🇸 USA Projects (3)
+
+| # | Project | Location | Type | Price Range | Status |
+|---|---|---|---|---|---|
+| 12 | Confident Metro Living | Jersey City, NJ | 1–3BR Condominiums | USD 450K – 1.2M | Under construction |
+| 13 | Confident Silicon Homes | Edison, NJ | Townhouses & Homes | USD 650K – 1.5M | Ready to occupy |
+| 14 | Confident Innovation Park | Fremont, CA | 2–3BR Condominiums | USD 800K – 1.8M | New launch |
+
+---
+
+## 🤖 AI Intelligence by Region
+
+| Region | Special AI Capabilities |
+|---|---|
+| 🌴 Kerala | FCNR loan guidance, NRI return family focus, Vastu compliance info |
+| 🏙️ Bangalore | IT corridor proximity, rental yield analysis, tech professional focus |
+| 🇦🇪 Dubai | UAE Golden Visa eligibility (AED 2M+), freehold info, 7–9% rental yield |
+| 🇺🇸 USA | H1B & Green Card mortgage guidance, school district info, Silicon Valley proximity |
+| ✈️ NRI Global | Asks which country customer is in → routes to most relevant projects automatically |
 
 ---
 
@@ -158,22 +192,23 @@ confident-group-chatbot/
 ### Step 1 — Get a Free Google Gemini API Key
 
 1. Go to **[aistudio.google.com/app/apikey](https://aistudio.google.com/app/apikey)**
-2. Sign in with your Google account
-3. Click **Create API Key** → Copy and save it
-4. Free tier: **1,500 requests/day** — no credit card required
+2. Sign in with your Google account — no credit card required
+3. Click **Create API Key** → copy and save it
+4. Free tier: **1,500 requests/day**
+
+> ⚠️ **Security rule:** Never paste your API key into the HTML file itself. Always enter it via the in-browser input bar. This prevents exposure on GitHub and key invalidation by Google.
 
 ---
 
 ### Step 2 — Deploy to GitHub Pages
 
-1. Create a new GitHub repository (e.g. `confident-group-chatbot`)
-2. Upload these two files:
-   - `index.html` (rename from `confident_group_chatbot_FINAL.html`)
-   - `.nojekyll` (empty file — prevents Jekyll build errors)
+1. Create a new GitHub repository (e.g. `real-estate-chatbot`)
+2. Upload both files to the repository root:
+   - `index.html`
+   - `.nojekyll` ← empty file, prevents Jekyll build errors
 3. Go to **Settings → Pages**
-4. Under **Build and deployment** → Source: **Deploy from a branch**
-5. Branch: `main` | Folder: `/ (root)` → click **Save**
-6. Wait 60–90 seconds → your live URL appears:
+4. Source: **Deploy from a branch** → Branch: `main` → Folder: `/ (root)` → **Save**
+5. Wait 60–90 seconds → live URL appears:
 
 ```
 https://YOUR-USERNAME.github.io/confident-group-chatbot/
@@ -181,106 +216,123 @@ https://YOUR-USERNAME.github.io/confident-group-chatbot/
 
 ---
 
-### Step 3 — Use the Chatbot
+### Step 3 — Connect and Use
 
 1. Open the live URL (or `index.html` locally in Chrome)
-2. Paste your **Google Gemini API key** in the gold bar at the top
-3. Click **Connect**
+2. Paste your **Google Gemini API key** into the red input bar at the top
+3. Click **Connect** — a confirmation toast appears
 4. Start chatting with Priya!
 
-> The API key is stored in your browser's `localStorage` — it persists across page refreshes so you only enter it once per device.
+> The API key is stored in your browser's `localStorage` — it persists across page refreshes so you only need to enter it once per device.
 
 ---
 
-### Local Development (No Deployment Needed)
+### Local Testing (No Deployment Needed)
 
 ```bash
-# No installation required — just open the file
-# Option 1: Double-click index.html in your file explorer
-# Option 2: Run a local server
+# No installation required
+# Option 1: Double-click index.html — opens directly in Chrome/Edge
+# Option 2: Run a quick local server
 npx serve .
-# Then open http://localhost:3000
+# Open http://localhost:3000
 ```
 
 ---
 
 ## 💬 Sample Conversations
 
-**Lead qualifying through chat:**
+**Kerala buyer:**
 ```
 Customer: I'm looking for a 3BHK apartment in Kochi under 1.5 crore
 Priya:    Confident Skyline Residences in Edapally is a great match!
-          It offers 3BHK apartments from ₹95L – ₹1.4Cr with rooftop
-          infinity pool, smart home tech and Metro connectivity.
-          Here's the brochure: https://confidentgroup.com/skyline-brochure
+          3BHK apartments from ₹95L – ₹1.4Cr with rooftop infinity pool,
+          smart home tech and direct Metro connectivity.
+          Brochure: https://confidentgroup.com/skyline-brochure
           Would you like to book a free site visit this weekend?
 ```
 
-**NRI investor enquiry:**
+**NRI from Dubai:**
 ```
-Customer: I'm an NRI in Dubai looking for investment property
-Priya:    Welcome! For NRI investors, I'd recommend two options:
-          • Confident Heritage Homes (Thrissur) — cultural living,
-            Vastu-compliant, strong rental demand — from ₹1.2Cr
-          • Confident Greenfields (Kozhikode) — best ROI,
-            plotted development — from ₹45L
-          Our dedicated NRI desk can assist with FCNR loans and
-          legal paperwork: nri@confidentgroup.com | +91-484-123-4568
-          Shall I help you schedule a video call with our NRI advisor?
+Customer: I'm an NRI based in Dubai looking for investment property
+Priya:    Since you're in Dubai, I have options in both UAE and India!
+          🇦🇪 Marina Cove (Dubai Marina) — 7–9% rental yield, ready to move
+          🌴 Heritage Homes (Thrissur) — ideal for NRI families returning home
+          Which interests you more — UAE investment or India?
 ```
 
-**Brochure request:**
+**US-based H1B buyer:**
 ```
-Customer: Can I get a brochure for the villa project?
-Priya:    Of course! Here are our villa projects:
-          🌿 Tranquil Villas (Kakkanad, Kochi):
-             https://confidentgroup.com/tranquil-villas-brochure
-          🏡 Heritage Homes (Thrissur):
-             https://confidentgroup.com/heritage-homes-brochure
-          Which location interests you more?
+Customer: I'm on H1B in New Jersey, looking to buy a home
+Priya:    Confident Silicon Homes in Edison NJ is perfect for you!
+          Top-rated Edison schools, Indian community neighbourhood,
+          from USD 650K. Our mortgage partners have H1B-specific programs.
+          A few units remaining — shall I arrange a viewing?
+```
+
+**Dubai Golden Visa enquiry:**
+```
+Customer: Can I get UAE Golden Visa with a property purchase?
+Priya:    Yes! Confident Pearl Residences in Downtown Dubai qualifies.
+          Properties above AED 2 million are eligible for the UAE
+          10-year Golden Visa. Our Dubai team manages the full process.
+          Shall I connect you with our Dubai advisor?
 ```
 
 ---
 
-## 🛡️ AI Persona & Rules
-
-Priya follows strict response rules defined in the system prompt:
+## 🛡️ AI Persona & Response Rules
 
 | Rule | Behaviour |
 |---|---|
-| Identity | Always responds as "Priya from Confident Group" |
-| Accuracy | Never fabricates project details not in knowledge base |
+| Region detection | Identifies customer's country/city → leads with relevant projects |
+| NRI smart routing | Asks which country customer is in before recommending |
 | Brochures | Always shares URL when a specific project is discussed |
-| Pricing | Gives listed range; refers negotiation to sales team |
-| Unknown projects | "Let me connect you with our team for the latest list" |
-| NRI customers | Highlights Heritage Homes + Greenfields; mentions NRI desk |
-| Ready buyers | Proactively offers to help book a site visit |
+| Pricing | Gives listed range; refers negotiation to regional sales team |
+| Golden Visa | Flags UAE Golden Visa eligibility for Dubai properties AED 2M+ |
+| US visa | Mentions H1B/Green Card mortgage eligibility for USA projects |
+| Unknown projects | Refers customer to the relevant regional team |
+| Ready buyers | Offers site visit (India) or video call (Dubai/USA) |
+| Accuracy | Never fabricates project details not in the knowledge base |
 | Tone | Warm, professional, never pushy |
 
 ---
 
-## ⚙️ Technical Details
+## ⚙️ Technical Specifications
 
 | Detail | Value |
 |---|---|
-| AI model | `gemini-2.5-flash` |
-| API endpoint | `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent` |
+| AI model | `gemini-1.5-flash` |
+| API endpoint | `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent` |
 | Max output tokens | 1,024 per response |
 | Temperature | 0.7 (balanced creativity + accuracy) |
-| Context window | Full conversation history sent each request |
+| Context window | Full conversation history sent with each request |
 | Hosting | GitHub Pages (free, static) |
-| Dependencies | None — vanilla HTML/CSS/JS only |
+| Framework | None — pure vanilla HTML / CSS / JavaScript |
+| Total file count | 1 self-contained file |
 | Browser support | Chrome, Firefox, Safari, Edge |
-| Mobile | Fully responsive |
+| Mobile | Fully responsive — sidebar collapses on small screens |
 
 ---
 
-## 🔒 Privacy & Security
+## 🔒 Security & Privacy
 
-- The Gemini API key is stored only in the **user's browser localStorage**
-- No user data is sent to any third-party server other than Google's Gemini API
-- No backend, no database, no cookies
-- Conversation history exists only in browser memory — cleared on page refresh or "Clear chat"
+- API key entered via **in-browser UI bar only** — never hardcoded in the file
+- Key stored in **browser localStorage** on user's own device only
+- No user data sent to any server other than Google's Gemini API
+- No backend, no database, no third-party analytics, no cookies
+- Conversation history clears on page refresh or "Clear chat"
+
+---
+
+## 🏢 Regional Contact Details
+
+| Region | Phone | Email |
+|---|---|---|
+| Kerala HQ | +91-484-123-4567 | sales@confidentgroup.com |
+| Bangalore | +91-80-123-4567 | bangalore@confidentgroup.com |
+| Dubai | +971-4-123-4567 | dubai@confidentgroup.com |
+| USA — New Jersey | +1-732-123-4567 | usa@confidentgroup.com |
+| NRI Desk (Global) | +91-484-123-4568 | nri@confidentgroup.com |
 
 ---
 
@@ -291,9 +343,9 @@ Priya follows strict response rules defined in the system prompt:
 | GitHub Pages hosting | Free |
 | Google Gemini 2.5 Flash API | Free — 1,500 requests/day |
 | Domain (github.io subdomain) | Free |
-| **Total monthly cost** | **₹0** |
+| **Total monthly cost** | **₹0 / AED 0 / USD 0** |
 
-> For production scale (10,000+ conversations/day), the Gemini API paid tier starts at approximately ₹0.01 per request — still significantly cheaper than hiring a customer support agent.
+> For production scale (10,000+ conversations/day), Gemini API paid tier costs approximately ₹0.01 per request — a fraction of hiring multilingual support staff across four countries.
 
 ---
 
@@ -301,19 +353,19 @@ Priya follows strict response rules defined in the system prompt:
 
 | Enhancement | Description |
 |---|---|
-| WhatsApp integration | Route chatbot to WhatsApp Business API |
-| Lead capture form | Collect name/email/phone within chat flow |
-| CRM sync | Auto-create HubSpot contact from chat conversation |
-| Multi-language | Malayalam + English responses for local customers |
+| WhatsApp integration | Route chatbot to WhatsApp Business API for all four regions |
+| Lead capture in chat | Collect name/email/phone → auto-feed into Task 1 Lead Qualification workflow |
+| CRM sync | Auto-create HubSpot contact from every chat conversation |
+| Currency switcher | Toggle between ₹, AED, and USD dynamically per region |
+| Multi-language | Malayalam, Kannada, Arabic alongside English |
 | Voice input | Web Speech API for voice-to-text queries |
-| Analytics | Track most asked questions via Google Analytics |
+| Video call booking | Calendly integration for Dubai and USA consultations |
 
 ---
 
 ## 🧠 Built By
 
 **Sanooj Babu Kakkoth**
-
 AI Automation & Integration Executive Candidate
 Confident Group — Bangalore Technology Team · 2026
 
