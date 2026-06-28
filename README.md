@@ -3,7 +3,7 @@
 > **Stage 2 Technical Assessment · Task 2**
 > AI Automation & Integration Executive · Bangalore Technology Team
 
-![AI](https://img.shields.io/badge/AI-Google%20Gemini%201.5%20Flash-blue?style=flat-square)
+![AI](https://img.shields.io/badge/AI-Google%20Gemini%202.5%20Flash-blue?style=flat-square)
 ![Deployed](https://img.shields.io/badge/Deployed-GitHub%20Pages-222?style=flat-square&logo=github)
 ![HTML](https://img.shields.io/badge/Built%20with-HTML%20%2F%20JS-orange?style=flat-square)
 ![Status](https://img.shields.io/badge/Status-Live-brightgreen?style=flat-square)
@@ -23,7 +23,7 @@
 
 Deployed as a single HTML file on GitHub Pages, Priya provides **24/7 intelligent customer engagement** — answering property FAQs, sharing project brochures, guiding NRI investors, and helping customers book site visits — all without any human involvement.
 
-The chatbot is powered by **Google Gemini 1.5 Flash** (free API tier), trained on Confident Group's project knowledge base via a detailed system prompt, and requires **no backend server, no database, and no paid hosting**.
+The chatbot is powered by **Google Gemini 2.5 Flash** (free API tier), trained on Confident Group's project knowledge base via a detailed system prompt, and requires **no backend server, no database, and no paid hosting**.
 
 ---
 
@@ -31,7 +31,7 @@ The chatbot is powered by **Google Gemini 1.5 Flash** (free API tier), trained o
 
 | Feature | Details |
 |---|---|
-| 🤖 AI-powered responses | Google Gemini 1.5 Flash — fast, accurate, context-aware |
+| 🤖 AI-powered responses | Google Gemini 2.5 Flash — fast, accurate, context-aware |
 | 🏠 Real estate knowledge base | 5 projects, pricing, locations, amenities, brochures |
 | 💬 Conversation memory | Full chat history maintained within the session |
 | ⚡ 8 quick-topic buttons | Apartments, Villas, Locations, Pricing, Brochures, NRI, Site Visit, Home Loans |
@@ -95,7 +95,7 @@ Customer opens chatbot URL (GitHub Pages)
              │
              ▼
     ┌─────────────────────────────────────────┐
-    │  Google Gemini 1.5 Flash API            │
+    │  Google Gemini 2.5 Flash API            │
     │  generativelanguage.googleapis.com      │
     │                                         │
     │  System prompt contains:                │
@@ -263,8 +263,8 @@ Priya follows strict response rules defined in the system prompt:
 
 | Detail | Value |
 |---|---|
-| AI model | `gemini-1.5-flash` |
-| API endpoint | `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent` |
+| AI model | `gemini-2.5-flash` |
+| API endpoint | `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent` |
 | Max output tokens | 1,024 per response |
 | Temperature | 0.7 (balanced creativity + accuracy) |
 | Context window | Full conversation history sent each request |
@@ -289,7 +289,7 @@ Priya follows strict response rules defined in the system prompt:
 | Resource | Cost |
 |---|---|
 | GitHub Pages hosting | Free |
-| Google Gemini 1.5 Flash API | Free — 1,500 requests/day |
+| Google Gemini 2.5 Flash API | Free — 1,500 requests/day |
 | Domain (github.io subdomain) | Free |
 | **Total monthly cost** | **₹0** |
 
