@@ -3,21 +3,21 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Confident Group — AI Property Assistant</title>
+  <title>Confident Group — AI Property Assistant | Kerala · Bangalore · Dubai · USA</title>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --gold:        #C9A84C;
-      --gold-light:  #E8D5A3;
-      --gold-dim:    #8B6F35;
-      --navy:        #0D1B2A;
-      --navy-mid:    #162336;
-      --navy-soft:   #1E3048;
-      --navy-card:   #243347;
+      --gold:        #C0392B;
+      --gold-light:  #FFCCCC;
+      --gold-dim:    #8B0000;
+      --navy:        #6B0F1A;
+      --navy-mid:    #7E1221;
+      --navy-soft:   #550C14;
+      --navy-card:   #3A050C;
       --white:       #FFFFFF;
-      --text-muted:  #6B7280;
+      --text-muted:  #7A6A6B;
       --shadow-chat: 0 32px 80px rgba(0,0,0,0.22), 0 8px 24px rgba(0,0,0,0.12);
     }
 
@@ -30,8 +30,8 @@
 
     body {
       background-image:
-        radial-gradient(ellipse 70% 60% at 15% 50%, rgba(201,168,76,0.07) 0%, transparent 100%),
-        radial-gradient(ellipse 50% 40% at 85% 15%, rgba(201,168,76,0.04) 0%, transparent 100%);
+        radial-gradient(ellipse 70% 60% at 15% 50%, rgba(192,28,44,0.10) 0%, transparent 100%),
+        radial-gradient(ellipse 50% 40% at 85% 15%, rgba(107,15,26,0.08) 0%, transparent 100%);
     }
 
     .layout { display: flex; height: 100vh; width: 100vw; }
@@ -47,7 +47,7 @@
     .sidebar::after {
       content: ''; position: absolute;
       right: 0; top: 20%; bottom: 20%; width: 1px;
-      background: linear-gradient(to bottom, transparent, rgba(201,168,76,0.2), transparent);
+      background: linear-gradient(to bottom, transparent, rgba(192,28,44,0.3), transparent);
     }
 
     .logo-block { display: flex; align-items: center; gap: 13px; margin-bottom: 44px; }
@@ -76,18 +76,18 @@
       display: flex; align-items: center; gap: 10px;
       padding: 10px 14px;
       background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(201,168,76,0.15);
+      border: 1px solid rgba(192,28,44,0.2);
       border-radius: 8px; cursor: pointer;
       transition: background 0.18s, border-color 0.18s, transform 0.12s;
       text-align: left;
     }
-    .chip:hover { background: rgba(201,168,76,0.1); border-color: rgba(201,168,76,0.45); transform: translateX(3px); }
+    .chip:hover { background: rgba(192,28,44,0.12); border-color: rgba(192,28,44,0.55); transform: translateX(3px); }
     .chip-icon { font-size: 15px; flex-shrink: 0; opacity: 0.85; }
     .chip-text { font-size: 12px; color: rgba(255,255,255,0.72); line-height: 1.3; }
 
     .stats { margin-top: auto; display: flex; border-top: 1px solid rgba(255,255,255,0.07); padding-top: 22px; }
     .stat { flex: 1; text-align: center; }
-    .stat-value { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; color: var(--gold-light); }
+    .stat-value { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; color: #FFCCCC; }
     .stat-label { font-size: 9.5px; color: rgba(255,255,255,0.35); letter-spacing: 1px; text-transform: uppercase; margin-top: 2px; }
     .stat + .stat { border-left: 1px solid rgba(255,255,255,0.07); }
 
@@ -100,7 +100,7 @@
     .header-avatar {
       width: 42px; height: 42px; border-radius: 50%;
       background: linear-gradient(135deg, var(--navy-soft), var(--navy-card));
-      border: 2px solid rgba(201,168,76,0.35);
+      border: 2px solid rgba(192,28,44,0.45);
       display: flex; align-items: center; justify-content: center; font-size: 19px; flex-shrink: 0;
     }
 
@@ -119,18 +119,18 @@
     /* API Setup */
     .api-setup {
       display: flex; align-items: center; gap: 10px;
-      background: rgba(201,168,76,0.08);
-      border: 1px solid rgba(201,168,76,0.25);
+      background: rgba(192,28,44,0.08);
+      border: 1px solid rgba(192,28,44,0.3);
       border-radius: 12px; padding: 10px 14px;
       margin-bottom: 16px; flex-shrink: 0;
     }
-    .api-setup-label { font-size: 11px; color: var(--gold-light); font-weight: 500; white-space: nowrap; }
-    .api-setup input { flex: 1; background: rgba(0,0,0,0.25); border: 1px solid rgba(201,168,76,0.2); border-radius: 7px; padding: 7px 12px; font-size: 12px; font-family: 'Inter', sans-serif; color: var(--white); outline: none; transition: border-color 0.18s; }
+    .api-setup-label { font-size: 11px; color: #FFCCCC; font-weight: 500; white-space: nowrap; }
+    .api-setup input { flex: 1; background: rgba(0,0,0,0.25); border: 1px solid rgba(192,28,44,0.25); border-radius: 7px; padding: 7px 12px; font-size: 12px; font-family: 'Inter', sans-serif; color: var(--white); outline: none; transition: border-color 0.18s; }
     .api-setup input::placeholder { color: rgba(255,255,255,0.3); }
-    .api-setup input:focus { border-color: var(--gold); }
-    .api-setup button { background: linear-gradient(135deg, var(--gold), var(--gold-dim)); color: var(--navy); border: none; border-radius: 7px; padding: 7px 16px; font-size: 12px; font-weight: 600; cursor: pointer; font-family: 'Inter', sans-serif; transition: opacity 0.18s; white-space: nowrap; }
+    .api-setup input:focus { border-color: #C0392B; }
+    .api-setup button { background: linear-gradient(135deg, #C0392B, #8B0000); color: var(--white); border: none; border-radius: 7px; padding: 7px 16px; font-size: 12px; font-weight: 600; cursor: pointer; font-family: 'Inter', sans-serif; transition: opacity 0.18s; white-space: nowrap; }
     .api-setup button:hover { opacity: 0.85; }
-    .api-setup-link { font-size: 11px; color: var(--gold); text-decoration: underline; white-space: nowrap; cursor: pointer; }
+    .api-setup-link { font-size: 11px; color: #FF8080; text-decoration: underline; white-space: nowrap; cursor: pointer; }
 
     /* Chat window */
     .chat-window { flex: 1; background: rgba(255,255,255,0.035); border: 1px solid rgba(255,255,255,0.07); border-radius: 18px; display: flex; flex-direction: column; overflow: hidden; box-shadow: var(--shadow-chat); min-height: 0; }
@@ -162,7 +162,7 @@
     /* Typing */
     .typing-row { display: flex; gap: 10px; align-items: flex-end; }
     .typing-bubble { padding: 14px 18px; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.09); border-radius: 18px; border-bottom-left-radius: 4px; display: flex; gap: 5px; align-items: center; }
-    .t-dot { width: 7px; height: 7px; background: var(--gold); border-radius: 50%; animation: tdot 1.3s ease-in-out infinite; }
+    .t-dot { width: 7px; height: 7px; background: #C0392B; border-radius: 50%; animation: tdot 1.3s ease-in-out infinite; }
     .t-dot:nth-child(2) { animation-delay: 0.18s; }
     .t-dot:nth-child(3) { animation-delay: 0.36s; }
     @keyframes tdot { 0%, 60%, 100% { transform: translateY(0); opacity: 0.4; } 30% { transform: translateY(-6px); opacity: 1; } }
@@ -171,18 +171,18 @@
     .input-bar { padding: 14px 18px; border-top: 1px solid rgba(255,255,255,0.07); display: flex; gap: 10px; align-items: flex-end; background: rgba(0,0,0,0.15); }
     .input-bar textarea { flex: 1; background: rgba(255,255,255,0.07); border: 1.5px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 11px 15px; font-size: 13.5px; font-family: 'Inter', sans-serif; color: var(--white); resize: none; outline: none; max-height: 110px; line-height: 1.5; transition: border-color 0.18s; }
     .input-bar textarea::placeholder { color: rgba(255,255,255,0.3); }
-    .input-bar textarea:focus { border-color: rgba(201,168,76,0.5); }
+    .input-bar textarea:focus { border-color: rgba(192,28,44,0.6); }
 
-    .send-btn { width: 44px; height: 44px; background: linear-gradient(135deg, var(--gold), var(--gold-dim)); border: none; border-radius: 12px; cursor: pointer; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: opacity 0.18s, transform 0.1s; box-shadow: 0 4px 14px rgba(201,168,76,0.3); }
+    .send-btn { width: 44px; height: 44px; background: linear-gradient(135deg, #C0392B, #8B0000); border: none; border-radius: 12px; cursor: pointer; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: opacity 0.18s, transform 0.1s; box-shadow: 0 4px 14px rgba(192,28,44,0.35); }
     .send-btn:hover { opacity: 0.88; }
     .send-btn:active { transform: scale(0.93); }
     .send-btn:disabled { opacity: 0.35; cursor: not-allowed; box-shadow: none; }
-    .send-btn svg { width: 19px; height: 19px; fill: var(--navy); }
+    .send-btn svg { width: 19px; height: 19px; fill: var(--white); }
 
     .input-hint { padding: 7px 18px 10px; font-size: 10.5px; color: rgba(255,255,255,0.2); text-align: center; background: rgba(0,0,0,0.15); }
 
     /* Toast */
-    .toast { position: fixed; bottom: 28px; left: 50%; transform: translateX(-50%) translateY(20px); background: rgba(30,48,72,0.95); border: 1px solid rgba(201,168,76,0.3); color: var(--gold-light); font-size: 12px; padding: 10px 20px; border-radius: 30px; opacity: 0; transition: all 0.3s; pointer-events: none; z-index: 999; backdrop-filter: blur(12px); }
+    .toast { position: fixed; bottom: 28px; left: 50%; transform: translateX(-50%) translateY(20px); background: rgba(107,15,26,0.95); border: 1px solid rgba(192,28,44,0.4); color: #FFCCCC; font-size: 12px; padding: 10px 20px; border-radius: 30px; opacity: 0; transition: all 0.3s; pointer-events: none; z-index: 999; backdrop-filter: blur(12px); }
     .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 
     @media (max-width: 760px) { .sidebar { display: none; } .chat-main { padding: 16px; } }
@@ -198,25 +198,25 @@
       <div class="logo-mark">🏛️</div>
       <div class="logo-text">Confident Group<span>Premium Properties</span></div>
     </div>
-    <h1 class="sidebar-headline">Find your <em>ideal</em> property with AI</h1>
-    <p class="sidebar-desc">Ask Priya anything about our projects — pricing, locations, floor plans, site visits, and more. Available 24/7.</p>
+    <h1 class="sidebar-headline">Find your <em>ideal</em> property — anywhere in the world</h1>
+    <p class="sidebar-desc">Ask Priya anything about our projects across Kerala, Bangalore, Dubai, and the USA — pricing, locations, floor plans, site visits, and more. Available 24/7.</p>
 
     <p class="chips-label">Quick topics</p>
     <div class="chips">
-      <button class="chip" onclick="quickSend('Tell me about your apartment projects in Kochi')"><span class="chip-icon">🏙️</span><span class="chip-text">Apartment Projects</span></button>
-      <button class="chip" onclick="quickSend('Tell me about your luxury villa projects')"><span class="chip-icon">🌿</span><span class="chip-text">Villa Projects</span></button>
-      <button class="chip" onclick="quickSend('What locations do you have properties in?')"><span class="chip-icon">📍</span><span class="chip-text">Locations</span></button>
+      <button class="chip" onclick="quickSend('Tell me about your Kerala projects')"><span class="chip-icon">🌴</span><span class="chip-text">Kerala Projects</span></button>
+      <button class="chip" onclick="quickSend('Tell me about your Bangalore projects in Karnataka')"><span class="chip-icon">🏙️</span><span class="chip-text">Bangalore Projects</span></button>
+      <button class="chip" onclick="quickSend('Tell me about your Dubai properties')"><span class="chip-icon">🇦🇪</span><span class="chip-text">Dubai Properties</span></button>
+      <button class="chip" onclick="quickSend('Tell me about your USA properties in New Jersey and California')"><span class="chip-icon">🇺🇸</span><span class="chip-text">USA Properties</span></button>
       <button class="chip" onclick="quickSend('What is the price range for your properties?')"><span class="chip-icon">💰</span><span class="chip-text">Pricing & Budget</span></button>
       <button class="chip" onclick="quickSend('Can I get a brochure for your projects?')"><span class="chip-icon">📄</span><span class="chip-text">Project Brochures</span></button>
-      <button class="chip" onclick="quickSend('I am an NRI investor. What options do you have for me?')"><span class="chip-icon">✈️</span><span class="chip-text">NRI Investment</span></button>
-      <button class="chip" onclick="quickSend('How do I book a site visit?')"><span class="chip-icon">🗓️</span><span class="chip-text">Book a Site Visit</span></button>
-      <button class="chip" onclick="quickSend('Tell me about home loan options available')"><span class="chip-icon">🏦</span><span class="chip-text">Home Loan Support</span></button>
+      <button class="chip" onclick="quickSend('I am an NRI investor. What are my best options?')"><span class="chip-icon">✈️</span><span class="chip-text">NRI Investment</span></button>
+      <button class="chip" onclick="quickSend('How do I book a site visit or video call?')"><span class="chip-icon">🗓️</span><span class="chip-text">Book a Visit</span></button>
     </div>
 
     <div class="stats">
       <div class="stat"><div class="stat-value">25+</div><div class="stat-label">Years</div></div>
-      <div class="stat"><div class="stat-value">50+</div><div class="stat-label">Projects</div></div>
-      <div class="stat"><div class="stat-value">4</div><div class="stat-label">Cities</div></div>
+      <div class="stat"><div class="stat-value">80+</div><div class="stat-label">Projects</div></div>
+      <div class="stat"><div class="stat-value">4</div><div class="stat-label">Countries</div></div>
     </div>
   </aside>
 
@@ -228,7 +228,7 @@
         <div class="header-avatar">🏛️</div>
         <div class="header-info">
           <h2>Priya — Property Assistant</h2>
-          <p><span class="online-dot"></span> Online · Powered by Google Gemini AI</p>
+          <p><span class="online-dot"></span> Online · Kerala · Bangalore · Dubai · USA</p>
         </div>
       </div>
       <button class="btn-clear" onclick="clearChat()">Clear chat</button>
@@ -249,12 +249,11 @@
           <div class="msg-content">
             <div class="msg-bubble">
               Welcome to <strong>Confident Group</strong>! I'm Priya, your AI property assistant. 👋<br><br>
-              I can help you with:<br>
-              • Our residential &amp; commercial projects<br>
-              • Pricing, locations &amp; floor plans<br>
-              • Project brochures<br>
-              • NRI investment guidance<br>
-              • Booking a site visit<br><br>
+              I can help you with properties across:<br>
+              🌴 <strong>Kerala</strong> — Kochi, Thrissur, Kozhikode<br>
+              🏙️ <strong>Bangalore</strong> — Whitefield, Sarjapur, Electronic City<br>
+              🇦🇪 <strong>Dubai</strong> — Downtown, Marina, Business Bay<br>
+              🇺🇸 <strong>USA</strong> — New Jersey & California<br><br>
               What kind of property are you looking for today?
             </div>
             <div class="msg-time" id="welcomeTime"></div>
@@ -268,7 +267,7 @@
           <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
         </button>
       </div>
-      <div class="input-hint">Enter to send · Shift+Enter for new line · Confident Group © 2026</div>
+      <div class="input-hint">Enter to send · Shift+Enter for new line · Confident Group — Kerala · Bangalore · Dubai · USA © 2026</div>
     </div>
 
   </main>
@@ -283,7 +282,7 @@ let history = [];
 let isThinking = false;
 
 /* ── KNOWLEDGE BASE (system instruction for Gemini) ── */
-const SYSTEM_INSTRUCTION = `You are Priya, a warm, knowledgeable, and professional AI property consultant for Confident Group — a premium real estate developer headquartered in Kochi, Kerala, India.
+const SYSTEM_INSTRUCTION = `You are Priya, a warm, knowledgeable, and professional AI property consultant for Confident Group — a premium international real estate developer headquartered in Kochi, Kerala, India, with projects across India, the UAE, and the United States.
 
 YOUR PERSONALITY:
 - Warm, confident, and genuinely helpful — like a trusted friend who knows real estate well
@@ -291,74 +290,205 @@ YOUR PERSONALITY:
 - Keep replies focused and scannable — use line breaks and bullet points for clarity
 - Always end with one natural follow-up question to keep the conversation going
 - Never be pushy; let the properties speak for themselves
+- When a customer mentions a country or city, focus on projects in that region first
 
 ABOUT CONFIDENT GROUP:
-- Premium real estate developer with 25+ years of excellence
-- 50+ completed projects across Kerala
+- Premium international real estate developer with 25+ years of excellence
+- 80+ completed projects across India, UAE, and the USA
 - Specialises in luxury villas, premium apartments, plotted developments, and commercial spaces
-- Projects across: Kochi, Thrissur, Kozhikode, Trivandrum
-- Strong NRI focus with dedicated NRI desk
-- RERA registered | ISO certified construction quality | Known for on-time delivery
+- India presence: Kerala (Kochi, Thrissur, Kozhikode, Trivandrum) and Karnataka (Bangalore)
+- International presence: Dubai (UAE) and New Jersey / New York (USA)
+- Strong NRI focus with dedicated NRI desks in Dubai and New Jersey
+- RERA registered (India) | ISO certified construction quality | Known for on-time delivery
 
-CURRENT PROJECTS:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+KERALA PROJECTS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-1. CONFIDENT TRANQUIL VILLAS — Kakkanad, Kochi
+1. CONFIDENT TRANQUIL VILLAS — Kakkanad, Kochi, Kerala
    Type: 3BHK & 4BHK Luxury Villas
    Price: ₹1.8 Cr – ₹3.2 Cr | Size: 2,200 – 3,800 sq ft
    Features: Private pool (optional), landscaped gardens, gated community, clubhouse, EV charging, 24/7 security
    Status: Under construction | Possession: December 2026
-   USP: Kakkanad's most premium villa community, close to Infopark
+   USP: Kakkanad's most premium villa community, steps from Infopark IT hub
    Brochure: https://confidentgroup.com/tranquil-villas-brochure
 
-2. CONFIDENT SKYLINE RESIDENCES — Edapally, Kochi
+2. CONFIDENT SKYLINE RESIDENCES — Edapally, Kochi, Kerala
    Type: 2BHK & 3BHK Premium Apartments
    Price: ₹75 L – ₹1.4 Cr | Size: 1,050 – 1,850 sq ft
-   Features: Rooftop infinity pool, fully equipped gym, EV charging, smart home automation, modular kitchen
+   Features: Rooftop infinity pool, gym, EV charging, smart home automation, modular kitchen
    Status: Ready to occupy
-   USP: Best connectivity — Metro, NH Bypass, airport within 15 min
+   USP: Best connectivity — Kochi Metro, NH Bypass, airport within 15 min
    Brochure: https://confidentgroup.com/skyline-brochure
 
-3. CONFIDENT HERITAGE HOMES — Thrissur
+3. CONFIDENT HERITAGE HOMES — Thrissur, Kerala
    Type: 3BHK & 4BHK Traditional Kerala-style Villas
    Price: ₹1.2 Cr – ₹2.1 Cr | Size: 1,900 – 3,200 sq ft
-   Features: Traditional Nalukettu-inspired architecture, teak wood interiors, Vastu compliant, large courtyard
+   Features: Nalukettu-inspired architecture, teak wood interiors, Vastu compliant, large courtyard
    Status: Ready to occupy
-   USP: Kerala cultural living — ideal for NRI families relocating from abroad
+   USP: Kerala cultural living — top choice for NRI families returning from abroad
    Brochure: https://confidentgroup.com/heritage-homes-brochure
 
-4. CONFIDENT GREENFIELDS — Kozhikode
+4. CONFIDENT GREENFIELDS — Kozhikode, Kerala
    Type: Plotted development + 2BHK compact villas
-   Price: Plots from ₹45 L | Villas from ₹90 L | Size: Plots 4–8 cents | Villas 950–1,400 sq ft
+   Price: Plots from ₹45 L | Villas from ₹90 L | Plots: 4–8 cents | Villas: 950–1,400 sq ft
    Features: Gated community, children's park, jogging track, organic farming plots
    Status: New launch — pre-booking open now
-   USP: Kozhikode's most affordable premium community — best ROI for investors
+   USP: Kozhikode's most affordable premium community — highest ROI for investors
    Brochure: https://confidentgroup.com/greenfields-brochure
 
-5. CONFIDENT CORPORATE PARK — Marine Drive, Kochi
+5. CONFIDENT CORPORATE PARK — Marine Drive, Kochi, Kerala
    Type: Commercial office spaces
    Price: ₹95 L – ₹3.5 Cr | Size: 600 – 4,500 sq ft
    Features: Sea-facing offices, premium lobbies, high-speed fiber, ample parking
    Status: Possession Q1 2027
-   USP: Kochi's most prestigious business address — Marine Drive frontage
+   USP: Kochi's most prestigious business address — Marine Drive sea frontage
+   Brochure: https://confidentgroup.com/corporate-park-brochure
 
-CONTACT & BOOKING:
-- Site visits: Free, 7 days a week, 9 AM – 6 PM
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+KARNATAKA PROJECTS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+6. CONFIDENT URBAN HEIGHTS — Whitefield, Bangalore, Karnataka
+   Type: 2BHK & 3BHK Premium Apartments
+   Price: ₹85 L – ₹1.8 Cr | Size: 1,100 – 2,100 sq ft
+   Features: Rooftop sky lounge, co-working spaces, gym, swimming pool, EV charging, smart home tech
+   Status: Under construction | Possession: March 2027
+   USP: Heart of Whitefield IT corridor — ideal for tech professionals and investors
+   Brochure: https://confidentgroup.com/urban-heights-brochure
+
+7. CONFIDENT SERENE VALLEY — Sarjapur Road, Bangalore, Karnataka
+   Type: 3BHK & 4BHK Luxury Villas + Row Houses
+   Price: ₹1.6 Cr – ₹3.8 Cr | Size: 2,000 – 4,200 sq ft
+   Features: Private garden, gated township, clubhouse, tennis court, kids' play zone, 24/7 security
+   Status: Ready to occupy
+   USP: Bangalore's fastest-growing corridor — excellent rental yield and capital appreciation
+   Brochure: https://confidentgroup.com/serene-valley-brochure
+
+8. CONFIDENT TECH SQUARE — Electronic City, Bangalore, Karnataka
+   Type: Commercial IT office spaces and retail
+   Price: ₹70 L – ₹2.8 Cr | Size: 500 – 5,000 sq ft
+   Features: Grade-A offices, high-speed fiber, conference facilities, food court, metro connectivity
+   Status: New launch — pre-leasing open
+   USP: Premium commercial space in Bangalore's top IT destination
+   Brochure: https://confidentgroup.com/tech-square-brochure
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+DUBAI (UAE) PROJECTS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+9. CONFIDENT PEARL RESIDENCES — Downtown Dubai, UAE
+   Type: 1BHK, 2BHK & 3BHK Luxury Apartments
+   Price: AED 950,000 – AED 4,200,000 (approx. ₹2.2 Cr – ₹9.8 Cr)
+   Size: 750 – 2,800 sq ft
+   Features: Burj Khalifa view (select units), infinity pool, concierge, valet parking, smart home, gym
+   Status: Under construction | Possession: Q4 2026
+   USP: Freehold property in Dubai's most iconic location — strong capital appreciation
+   Brochure: https://confidentgroup.com/pearl-residences-brochure
+   Note: Eligible for UAE Golden Visa (property value AED 2M+)
+
+10. CONFIDENT MARINA COVE — Dubai Marina, UAE
+    Type: Studio, 1BHK & 2BHK Apartments
+    Price: AED 650,000 – AED 2,800,000 (approx. ₹1.5 Cr – ₹6.5 Cr)
+    Size: 450 – 1,600 sq ft
+    Features: Marina view, rooftop pool, gym, 24/7 concierge, walking distance to JBR beach
+    Status: Ready to move | Handover: Immediate
+    USP: Premium waterfront living — highest rental yield in Dubai (7–9% p.a.)
+    Brochure: https://confidentgroup.com/marina-cove-brochure
+    Note: Freehold | No property tax | 100% foreign ownership
+
+11. CONFIDENT BUSINESS BAY TOWER — Business Bay, Dubai, UAE
+    Type: Commercial offices and serviced suites
+    Price: AED 1,200,000 – AED 8,500,000
+    Size: 800 – 6,000 sq ft
+    Features: Canal views, premium fit-out, 24/7 security, business lounge, proximity to DIFC
+    Status: Ready to occupy
+    USP: Dubai's business hub — ideal for Indian companies expanding to UAE
+    Brochure: https://confidentgroup.com/business-bay-tower-brochure
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+USA PROJECTS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+12. CONFIDENT METRO LIVING — Jersey City, New Jersey, USA
+    Type: 1BR, 2BR & 3BR Luxury Condominiums
+    Price: USD 450,000 – USD 1,200,000 (approx. ₹3.7 Cr – ₹10 Cr)
+    Size: 650 – 1,800 sq ft
+    Features: Manhattan skyline views, rooftop terrace, gym, concierge, PATH train access
+    Status: Under construction | Possession: Q2 2027
+    USP: 5 minutes from Manhattan — best value luxury living in the NYC metro area
+    Brochure: https://confidentgroup.com/metro-living-brochure
+    Note: Open to Indian diaspora investors | H1B/Green card holders eligible
+
+13. CONFIDENT SILICON HOMES — Edison, New Jersey, USA
+    Type: Townhouses and single-family homes
+    Price: USD 650,000 – USD 1,500,000 (approx. ₹5.4 Cr – ₹12.5 Cr)
+    Size: 1,800 – 3,500 sq ft
+    Features: Top-rated Edison school district, Indian community neighbourhood, large backyard, 2-car garage
+    Status: Ready to occupy | A few units remaining
+    USP: Most preferred address for Indian IT professionals settling in New Jersey
+    Brochure: https://confidentgroup.com/silicon-homes-brochure
+    Note: Ideal for Indian families on H1B / Green card / US citizenship
+
+14. CONFIDENT INNOVATION PARK — Fremont, California, USA
+    Type: 2BR & 3BR Luxury Condominiums
+    Price: USD 800,000 – USD 1,800,000 (approx. ₹6.6 Cr – ₹15 Cr)
+    Size: 1,000 – 2,200 sq ft
+    Features: Silicon Valley proximity, smart home tech, EV charging, community clubhouse, BART access
+    Status: New launch — pre-booking open
+    USP: Gateway to Silicon Valley — ideal for Indian tech professionals at Google, Apple, Meta, Amazon
+    Brochure: https://confidentgroup.com/innovation-park-brochure
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+CONTACT & BOOKING
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+India HQ (Kerala):
 - Sales: +91-484-123-4567 | WhatsApp: +91-98765-43210
-- Sales office: 4th Floor, Confident Tower, MG Road, Kochi
+- Office: 4th Floor, Confident Tower, MG Road, Kochi
 - Email: sales@confidentgroup.com
-- NRI desk: nri@confidentgroup.com | +91-484-123-4568
 
-HOME LOAN SUPPORT:
+Bangalore Office:
+- Sales: +91-80-123-4567 | Email: bangalore@confidentgroup.com
+
+Dubai Office:
+- Sales: +971-4-123-4567 | WhatsApp: +971-50-123-4567
+- Office: Suite 1204, Tamani Arts Tower, Business Bay, Dubai
+- Email: dubai@confidentgroup.com
+
+USA Office (New Jersey):
+- Sales: +1-732-123-4567 | WhatsApp: +1-732-123-4568
+- Office: 1 Gateway Center, Suite 2600, Newark, NJ 07102
+- Email: usa@confidentgroup.com
+
+NRI Desk (Global):
+- Email: nri@confidentgroup.com | +91-484-123-4568
+- Dedicated support for UAE, UK, USA, Canada, Australia
+
+Site visits: Free, 7 days a week, 9 AM – 6 PM (all offices)
+
+HOME LOAN & MORTGAGE SUPPORT:
+India:
 - Bank tie-ups: SBI, HDFC, ICICI, Axis Bank, Federal Bank
-- Up to 80% loan on ready properties
-- Special NRI mortgage and FCNR loan assistance available
+- Up to 80% loan on ready properties | Special FCNR loan for NRIs
+
+Dubai:
+- Mortgage tie-ups: Emirates NBD, ADCB, Mashreq Bank
+- Up to 75% mortgage for NRI buyers | Post-dated cheque payment plans available
+
+USA:
+- Mortgage partners: Wells Fargo, Chase, Bank of America
+- H1B and Green Card holder mortgage assistance available
+- Down payment from 20%
 
 RESPONSE RULES:
+- When customer mentions a country/city, focus on projects in that region first
 - Always share the brochure URL when a specific project is discussed
+- For Dubai: mention UAE Golden Visa eligibility where applicable (AED 2M+ properties)
+- For USA: mention school districts and visa-holder eligibility where relevant
 - For pricing negotiation: "Our sales team can work out the best deal for you"
 - For unknown projects: "Let me connect you with our team for the latest project list"
-- If customer mentions budget/timeline match: proactively offer to help book a site visit
-- NRI customers: highlight Heritage Homes and Greenfields; mention NRI desk
+- If customer mentions budget/timeline match: proactively offer to help book a site visit or video call
+- NRI customers: ask which country they are based in, then recommend relevant projects
 - NEVER fabricate project details not listed above`;
 
 /* ── INIT ── */
@@ -488,7 +618,7 @@ function showTyping() {
   const row = document.createElement('div');
   row.className = 'typing-row'; row.id = id;
   row.innerHTML = `
-    <div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#1E3048,#243347);border:1px solid rgba(201,168,76,0.25);display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0">🏛️</div>
+    <div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#550C14,#3A050C);border:1px solid rgba(192,28,44,0.35);display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0">🏛️</div>
     <div class="typing-bubble"><div class="t-dot"></div><div class="t-dot"></div><div class="t-dot"></div></div>`;
   feed.appendChild(row);
   feed.scrollTop = feed.scrollHeight;
